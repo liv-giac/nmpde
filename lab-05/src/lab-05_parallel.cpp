@@ -4,18 +4,21 @@
 #include <iostream>
 #include <vector>
 
-#include "Poisson3D.hpp"
+#include "Poisson3D_parallel.hpp"
 
 // Main function.
 int
-main(int /*argc*/, char * /*argv*/[])
+main(int argc, char *argv[])
 {
-  Utilities::MPI::MPI_InitFinalize mpi_init(argc,argv);
-  
-  const unsigned int N = 19;
-  const unsigned int r = 1;
+  // This object calls MPI_Init when it is constructed, and MPI_Finalize when it
+  // is destroyed. It also initializes several other libraries bundled with
+  // dealii (e.g. p4est, PETSc, ...).
+  Utilities::MPI::MPI_InitFinalize mpi_init(argc, argv);
 
-  Poisson3D problem(N, r);
+  const unsigned int N      = 39;
+  const unsigned int degree = 1;
+
+  Poisson3DParallel problem(N, degree);
 
   problem.setup();
   problem.assemble();

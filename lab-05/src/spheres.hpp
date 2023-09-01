@@ -72,7 +72,7 @@
 using namespace dealii;
     const int dim = 3;
     //funzione per capire se un punto è dentro UNA sfera
-    int pointinsphere(const Point<dim> &p, const Point<dim> &c, const double &R) {
+    inline int pointinsphere(const Point<dim> &p, const Point<dim> &c, const double &R) {
       Point<dim> d(p[0]-c[0], p[1]-c[1], p[2]-c[2]);
       double modulo = std::sqrt(d[0]*d[0]+d[1]*d[1]+d[2]*d[2]);
       if(modulo <= R){
@@ -81,7 +81,7 @@ using namespace dealii;
       return 0;
     }
     //funzione per capire se un punto è dentro le sfere
-    int isinspheres(const Point<dim> &p, 
+    inline int isinspheres(const Point<dim> &p, 
     const std::vector<Point<dim>> &centers, 
     const double R) {
       for(auto& centro : centers){

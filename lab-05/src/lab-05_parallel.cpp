@@ -47,9 +47,11 @@ main(int argc, char *argv[])
   problem.solve();
   timer.leave_subsection();
   problem.output();
-  std::ostringstream summary_stream;
-  timer.print_summary(summary_stream);
-  myfile << summary_stream.str();
+  std::streambuf* cout_buf = std::cout.rdbuf();
+  std::cout.rdbuf(myfile.rdbuf());
+  timer.print_summary();
+  std::cout.rdbuf(cout_buf); // Restore cout to its original state
+
   myfile.close();
   // }
   return 0;

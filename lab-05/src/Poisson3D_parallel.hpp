@@ -71,7 +71,7 @@ public:
           const std::vector<Point<dim>> centers{c1};
           //const std::vector<Point<dim>> centers{c1,c2,c3,c4,c5};
           //const std::vector<Point<dim>> centers{c1,c2,c3,c4,c5,c6,c7,c8,c9};
-          const double R = 0.4;
+          const double R = 0.1;
           const unsigned int epsilon = 5;
       if (isinspheres(p, centers, R))
         return std::pow(10,epsilon);

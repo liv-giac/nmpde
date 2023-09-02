@@ -209,9 +209,9 @@ Poisson3DParallel::solve()
   // Trilinos linear algebra.
   SolverCG<TrilinosWrappers::MPI::Vector> solver(solver_control);
 
-  TrilinosWrappers::PreconditionJacobi preconditioner;
+  TrilinosWrappers::PreconditionILU preconditioner;
   preconditioner.initialize(
-    system_matrix, TrilinosWrappers::PreconditionJacobi::AdditionalData(1.0));
+    system_matrix, TrilinosWrappers::PreconditionILU::AdditionalData(1.0));
 
   pcout << "  Solving the linear system" << std::endl;
   solver.solve(system_matrix, solution, system_rhs, preconditioner);

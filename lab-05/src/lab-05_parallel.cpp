@@ -47,7 +47,7 @@ main(int argc, char *argv[])
   problem.solve();
   timer.leave_subsection();
   problem.output();
-  timer.print_summary(myfile, dealii::TimerOutput::SummaryStyle::default_style);
+  timer.print_summary(myfile);
   myfile.close();
   // }
   return 0;

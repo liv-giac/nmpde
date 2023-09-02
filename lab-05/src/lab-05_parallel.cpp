@@ -1,6 +1,6 @@
 #include <deal.II/base/convergence_table.h>
 #include <deal.II/base/conditional_ostream.h>
-
+#include <deal.II/base/timer.h>
 #include <fstream>
 #include <iostream>
 #include <vector>
@@ -32,7 +32,7 @@ main(int argc, char *argv[])
   Poisson3DParallel problem(N, degree);
   std::ofstream myfile;
   myfile.open ("timer" + std::to_string(N) + ".txt");
-  TimerOutput timer (MPI_COMM_WORLD,
+  dealii::TimerOutput timer (MPI_COMM_WORLD,
                    pcout,
                    TimerOutput::summary,
                    TimerOutput::wall_times);

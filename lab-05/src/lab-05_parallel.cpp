@@ -30,8 +30,8 @@ main(int argc, char *argv[])
   // for (const unsigned int &N : N_values){
   unsigned int N = 39;
   Poisson3DParallel problem(N, degree);
-  std::ofstream myfile;
-  myfile.open ("timer" + std::to_string(N) + ".txt");
+
+
   dealii::TimerOutput timer (MPI_COMM_WORLD,
                    pcout,
                    TimerOutput::summary,
@@ -47,12 +47,7 @@ main(int argc, char *argv[])
   problem.solve();
   timer.leave_subsection();
   problem.output();
-  std::streambuf* cout_buf = std::cout.rdbuf();
-  std::cout.rdbuf(myfile.rdbuf());
-  timer.print_summary();
-  std::cout.rdbuf(cout_buf); // Restore cout to its original state
 
-  myfile.close();
   // }
   return 0;
 }

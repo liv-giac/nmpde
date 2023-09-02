@@ -25,7 +25,7 @@ main(int argc, char *argv[])
   dealii::ConditionalOStream pcout(std::cout, Utilities::MPI::this_mpi_process(MPI_COMM_WORLD) == 0);
 
   const std::vector<unsigned int> N_values = {4, 9, 19, 39};
-  const unsigned int degree = 2;
+  const unsigned int degree = 1;
 
   // for (const unsigned int &N : N_values){
   unsigned int N = 39;

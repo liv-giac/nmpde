@@ -59,14 +59,20 @@ public:
     value(const Point<dim> &p,
           const unsigned int /*component*/ = 0) const override
           {
-          const Point<dim> c1(0.25, 0.25, 0.25);
-          const Point<dim> c2(0.75, 0.75, 0.25);
-          const Point<dim> c3(0.75, 0.75, 0.75);
-          const Point<dim> c4(0.75, 0.25, 0.75);
+          const Point<dim> c1(0.5, 0.5, 0.5);
+          const Point<dim> c2(0.25, 0.25, 0.25);
+          const Point<dim> c3(0.25, 0.25, 0.75);
+          const Point<dim> c4(0.75, 0.75, 0.75);
           const Point<dim> c5(0.25, 0.75, 0.75);
-          const std::vector<Point<dim>> centers{c1,c3};
-          const double R = 0.1;
-          const unsigned int epsilon = 10;
+          const Point<dim> c6(0.25, 0.75, 0.25);
+          const Point<dim> c7(0.75, 0.75, 0.25);
+          const Point<dim> c8(0.75, 0.25, 0.25);
+          const Point<dim> c9(0.75, 0.25, 0.75);
+          const std::vector<Point<dim>> centers{c1};
+          //const std::vector<Point<dim>> centers{c1,c2,c3,c4,c5};
+          //const std::vector<Point<dim>> centers{c1,c2,c3,c4,c5,c6,c7,c8,c9};
+          const double R = 0.4;
+          const unsigned int epsilon = 5;
       if (isinspheres(p, centers, R))
         return std::pow(10,epsilon);
       else

@@ -47,7 +47,9 @@ main(int argc, char *argv[])
   problem.solve();
   timer.leave_subsection();
   problem.output();
-  timer.print_summary(myfile);
+  std::ostringstream summary_stream;
+  timer.print_summary(summary_stream);
+  myfile << summary_stream.str();
   myfile.close();
   // }
   return 0;

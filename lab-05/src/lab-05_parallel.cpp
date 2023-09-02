@@ -28,7 +28,7 @@ main(int argc, char *argv[])
   const unsigned int degree = 2;
 
   // for (const unsigned int &N : N_values){
-  unsigned int N = 19;
+  unsigned int N = 9;
   Poisson3DParallel problem(N, degree);
 
 

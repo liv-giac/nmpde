@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -S /bin/bash
+
+#PBS -l nodes=1:ppn=20,walltime=8:00:00 -q gigat
+#PBS -N nmpde
+
+source /u/desantis/nmpde/hpc.bashrc
+
+cp -R /u/desantis/nmpde /scratch/hpc/desantis/
+
+cd /scratch/hpc/desantis/src
+sort ${PBS_NODEFILE} | uniq -c | awk '{ printf("%s\n", $2); }' > mpd.nodes
+time mpiexec -machinefile mpd.nodes -n 20 ./lab-05-parallel > /scratch/hpc/desantis/out_nmpde.txt 2>&1

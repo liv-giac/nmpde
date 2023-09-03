@@ -8,6 +8,6 @@ source /u/desantis/nmpde/hpc.bashrc
 
 cp -R /u/desantis/nmpde /scratch/hpc/desantis/
 
-cd /scratch/hpc/desantis/src
+cd /scratch/hpc/desantis/nmpde/lab-05/src
 sort ${PBS_NODEFILE} | uniq -c | awk '{ printf("%s\n", $2); }' > mpd.nodes
 time mpiexec -machinefile mpd.nodes -n 20 ./lab-05-parallel > /scratch/hpc/desantis/out_nmpde.txt 2>&1
